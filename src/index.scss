@@ -1,4 +1,36 @@
-$danger: blue;
+// $secondary: rgba(129, 128, 128, 0.2);
 
 @import "../node_modules//bootstrap/scss/bootstrap.scss";
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+.border-right {
+  border-right: 1.2px solid #c9c8c8; /* Change the color and size as needed */
+}
+
+.cloud-color {
+  //   color: #9ebfc8;
+  color: #aee2f0;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.active {
+  color: #fff;
+}
+
+//********** EDIT Default bootstrap styles ****************
+.list-group {
+  .list-group-item {
+    border: none;
+  }
+
+  .list-group-item.active {
+    border-radius: 100px;
+  }
+
+  .list-group-item.active div {
+    color: #fff;
+  }
+}
