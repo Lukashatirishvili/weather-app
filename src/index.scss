@@ -4,7 +4,7 @@
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 .border-right {
-  border-right: 1.2px solid #c9c8c8; /* Change the color and size as needed */
+  border-right: 1.4px solid #f0efef; /* Change the color and size as needed */
 }
 
 .cloud-color {
@@ -20,6 +20,31 @@
   color: #fff;
 }
 
+.search-icon {
+  left: 11px;
+  top: 7px;
+  pointer-events: none;
+  color: #3c3c3c;
+}
+
+.search-input {
+  border: none;
+  // outline: none;
+}
+
+.background-img {
+  background: url("https://img.freepik.com/free-photo/sunshine-clouds-sky-morning-background-blue-white-pastel-heaven-soft-focus-lens-flare-sunlight-abstract-blurred-cyan-gradient-peaceful-nature-open-view-out-windows-beautiful-summer-spring_1253-1092.jpg?t=st=1715420876~exp=1715424476~hmac=7b491062db0410f78ca650e5eebf74d40bc92634dc9def996878dffaecb27166&w=900");
+  background-size: cover;
+}
+
+.temp-background {
+  background-color: rgba(228, 226, 226, 0.3);
+}
+
+.weekF-background {
+  background-color: rgba(228, 226, 226, 0.1);
+}
+
 //********** EDIT Default bootstrap styles ****************
 .list-group {
   .list-group-item {
@@ -33,4 +58,12 @@
   .list-group-item.active div {
     color: #fff;
   }
+}
+
+.form-control {
+  padding-left: 32px;
+}
+
+p {
+  margin: 0;
 }
