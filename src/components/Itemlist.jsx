@@ -7,14 +7,19 @@ import {
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { WeatherContext } from "../context/WeatherContext";
 
 function Itemlist() {
+  const { setShow } = useContext(WeatherContext);
+
   return (
     <div className="mt-5">
       <ul className="list-group gap-3">
         <NavLink
           to={"/"}
+          onClick={() => setShow(false)}
           className="list-group-item cursor-pointer"
           style={{
             textDecoration: "none",
@@ -30,6 +35,7 @@ function Itemlist() {
         </NavLink>
         <NavLink
           to={"/map"}
+          onClick={() => setShow(false)}
           className="list-group-item cursor-pointer"
           style={{
             textDecoration: "none",
@@ -46,6 +52,7 @@ function Itemlist() {
 
         <NavLink
           to={"/savedlocations"}
+          onClick={() => setShow(false)}
           className="list-group-item cursor-pointer"
           style={{
             textDecoration: "none",
@@ -61,6 +68,7 @@ function Itemlist() {
         </NavLink>
         <NavLink
           to={"/calendar"}
+          onClick={() => setShow(false)}
           className="list-group-item cursor-pointer"
           style={{
             textDecoration: "none",
@@ -76,6 +84,7 @@ function Itemlist() {
         </NavLink>
         <NavLink
           to={"/converter"}
+          onClick={() => setShow(false)}
           className="list-group-item cursor-pointer"
           style={{
             textDecoration: "none",
@@ -91,6 +100,7 @@ function Itemlist() {
         </NavLink>
         <NavLink
           to={"/settings"}
+          onClick={() => setShow(false)}
           className="list-group-item cursor-pointer"
           style={{
             textDecoration: "none",

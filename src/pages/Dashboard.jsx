@@ -5,7 +5,7 @@ import Input from "../components/Input";
 function Dashboard() {
   return (
     <>
-      <div className="col-7  border-right py-4 px-5">
+      <div className="col border-right py-4 px-5">
         <div className="container text-center">
           <div className="row gap-4 justify-content-center">
             <Input />
@@ -13,7 +13,7 @@ function Dashboard() {
           </div>
         </div>
       </div>
-      <div className="col-3 px-4">
+      <div className="col-lg-3 px-md-4 px-5 ">
         <DailyForecast />
       </div>
     </>

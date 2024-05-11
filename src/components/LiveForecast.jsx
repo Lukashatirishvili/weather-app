@@ -53,8 +53,9 @@ function LiveForecast() {
           </div>
         </div>
       </div>
-      <div className="row gap-5 p-0">
-        <div className="col temp-background p-3 rounded-3">
+
+      <div className="row gap-4 p-0">
+        <div className="col-md temp-background p-3 rounded-3">
           <div className="row">
             <div className="col text-start">
               <p className="fw-semibold mb-1">Wind</p>
@@ -70,7 +71,7 @@ function LiveForecast() {
             </div>
           </div>
         </div>
-        <div className="col temp-background p-3 rounded-3">
+        <div className="col-md temp-background p-3 rounded-3">
           <div className="row">
             <div className="col text-start">
               <p className="fw-semibold mb-1">Rain Chance</p>
@@ -87,8 +88,8 @@ function LiveForecast() {
           </div>
         </div>
       </div>
-      <div className="row gap-5 p-0">
-        <div className="col temp-background p-3 rounded-3">
+      <div className="row gap-4 p-0">
+        <div className="col-md temp-background p-3 rounded-3">
           <div className="row">
             <div className="col text-start">
               <p className="fw-semibold mb-1">Pressure</p>
@@ -102,7 +103,7 @@ function LiveForecast() {
             </div>
           </div>
         </div>
-        <div className="col temp-background p-3 rounded-3">
+        <div className="col-md temp-background p-3 rounded-3">
           <div className="row">
             <div className="col text-start">
               <p className="fw-semibold mb-1">UV Index</p>

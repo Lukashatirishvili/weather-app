@@ -1,9 +1,17 @@
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useContext } from "react";
+import { WeatherContext } from "../context/WeatherContext";
 
 function Input() {
+  const { setShow } = useContext(WeatherContext);
   return (
     <div className="d-flex align-items-center p-0">
+      <div className="d-lg-none me-3" onClick={() => setShow(true)}>
+        <span className="fs-3">
+          <FontAwesomeIcon icon={faBars} />
+        </span>
+      </div>
       <div className="flex-fill position-relative">
         <input
           className="form-control"
