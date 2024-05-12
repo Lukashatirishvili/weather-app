@@ -8,8 +8,40 @@ import {
   faWind,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useContext } from "react";
+import { WeatherContext } from "../context/WeatherContext";
+import { Spinner } from "react-bootstrap";
 
 function LiveForecast() {
+  const { liveForecast, isLoading } = useContext(WeatherContext);
+
+  const { location, current } = liveForecast;
+
+  const time = location?.localtime?.split(" ")[1];
+
+  if (liveForecast.length === 0)
+    return (
+      <div role="alert" className="alert alert-dark">
+        Enter a city name to get the weather forecast
+      </div>
+    );
+
+  if (isLoading)
+    return (
+      <div style={{ marginTop: "160px" }}>
+        <Spinner
+          animation="border"
+          role="status"
+          style={{
+            width: "5rem",
+            height: "5rem",
+            borderWidth: "0.5em",
+            animationDuration: "1s",
+          }}
+          className=""
+        />
+      </div>
+    );
   return (
     <>
       <div className="row background-img rounded-3 py-4 px-3">
@@ -19,36 +51,36 @@ function LiveForecast() {
               <span>
                 <FontAwesomeIcon icon={faLocationDot} />
               </span>
-              <h4 className="m-0">Gotham</h4>
+              <h4 className="m-0">{`${location.name}, ${location.country}`}</h4>
             </div>
             <div>
-              <p className="m-0">Today 00:32PM</p>
+              <p className="m-0">Today {time}</p>
             </div>
           </div>
-          <div>
+          <div className="">
             <h1 className="m-0" style={{ fontSize: "70px" }}>
-              14°
+              {current.temp_c}°
             </h1>
-            <p className="m-0">Mostly clear</p>
+            <p className="m-0 me-2">{current.condition.text}</p>
           </div>
           <div className="d-flex justify-content-between align-items-center mt-4">
             <div className="d-flex gap-2">
               <span>
                 <FontAwesomeIcon icon={faWind} />
               </span>
-              <p>720ph</p>
+              <p>{current.wind_degree}ph</p>
             </div>
             <div className="d-flex gap-2">
               <span>
                 <FontAwesomeIcon icon={faDroplet} />
               </span>
-              <p>32%</p>
+              <p>{current.humidity}%</p>
             </div>
             <div className="d-flex gap-2">
               <span>
                 <FontAwesomeIcon icon={faWind} />
               </span>
-              <p>12 km/h</p>
+              <p>{current.wind_kph} km/h</p>
             </div>
           </div>
         </div>
@@ -62,7 +94,7 @@ function LiveForecast() {
               <p style={{ fontSize: "13px", color: "grey" }}>
                 Today wind speed
               </p>
-              <p className="fw-semibold mt-1">12km/h</p>
+              <p className="fw-semibold mt-1">{current.wind_kph}km/h</p>
             </div>
             <div className="col">
               <span style={{ fontSize: "50px", color: "#5e7489c3" }}>
@@ -94,7 +126,7 @@ function LiveForecast() {
             <div className="col text-start">
               <p className="fw-semibold mb-1">Pressure</p>
               <p style={{ fontSize: "13px", color: "grey" }}>Today pressure</p>
-              <p className="fw-semibold mt-1">720hpa</p>
+              <p className="fw-semibold mt-1">{current.pressure_mb}hpa</p>
             </div>
             <div className="col">
               <span style={{ fontSize: "50px", color: "#5e7489c3" }}>
@@ -108,7 +140,7 @@ function LiveForecast() {
             <div className="col text-start">
               <p className="fw-semibold mb-1">UV Index</p>
               <p style={{ fontSize: "13px", color: "grey" }}>Today UV Index</p>
-              <p className="fw-semibold mt-1">2</p>
+              <p className="fw-semibold mt-1">{current.uv}</p>
             </div>
             <div className="col">
               <span style={{ fontSize: "50px", color: "#5e7489c3" }}>

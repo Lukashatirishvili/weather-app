@@ -45,6 +45,26 @@
   background-color: rgba(228, 226, 226, 0.1);
 }
 
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 6px; /* Set the width of the scrollbar */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color of the scrollbar track */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the scrollbar handle */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color of the scrollbar handle on hover */
+}
+
 //********** EDIT Default bootstrap styles ****************
 .list-group {
   .list-group-item {
