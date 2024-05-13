@@ -10,10 +10,9 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
 import { WeatherContext } from "../context/WeatherContext";
-import { Spinner } from "react-bootstrap";
 
 function LiveForecast() {
-  const { liveForecast, isLoading } = useContext(WeatherContext);
+  const { liveForecast } = useContext(WeatherContext);
 
   const { location, current } = liveForecast;
 
@@ -26,22 +25,6 @@ function LiveForecast() {
       </div>
     );
 
-  if (isLoading)
-    return (
-      <div style={{ marginTop: "160px" }}>
-        <Spinner
-          animation="border"
-          role="status"
-          style={{
-            width: "5rem",
-            height: "5rem",
-            borderWidth: "0.5em",
-            animationDuration: "1s",
-          }}
-          className=""
-        />
-      </div>
-    );
   return (
     <>
       <div className="row background-img rounded-3 py-4 px-3">

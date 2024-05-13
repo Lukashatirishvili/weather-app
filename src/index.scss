@@ -45,6 +45,13 @@
   background-color: rgba(228, 226, 226, 0.1);
 }
 
+@media (min-width: 992px) {
+  .dailyContainer {
+    max-height: 500px;
+    overflow: auto;
+  }
+}
+
 /* Custom scrollbar styles */
 ::-webkit-scrollbar {
   width: 6px; /* Set the width of the scrollbar */
@@ -86,4 +93,8 @@
 
 p {
   margin: 0;
+}
+
+.carousel-indicators {
+  display: none;
 }

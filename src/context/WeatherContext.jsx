@@ -35,6 +35,8 @@ export function WeatherProvider({ children }) {
     useReducer(reducer, initialState);
   const [show, setShow] = useState(false);
 
+  console.log(isLoading);
+
   async function handleFetchForecast(query) {
     dispatch({ type: "FETCH_REQUEST" });
     try {
