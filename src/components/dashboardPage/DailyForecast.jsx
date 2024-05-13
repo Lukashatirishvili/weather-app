@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
-import { WeatherContext } from "../context/WeatherContext";
-import { formatDate } from "../helper/formatDate";
-import { getDayOfWeek } from "../helper/getDayofWeek";
+import { WeatherContext } from "../../context/WeatherContext";
+import { formatDate } from "../../helper/formatDate";
+import { getDayOfWeek } from "../../helper/getDayofWeek";
 import { Carousel } from "react-bootstrap";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

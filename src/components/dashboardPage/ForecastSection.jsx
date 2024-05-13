@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import LiveForecast from "./LiveForecast";
-import { WeatherContext } from "../context/WeatherContext";
+import { WeatherContext } from "../../context/WeatherContext";
 import { Spinner } from "react-bootstrap";
 
 function ForecastSection() {

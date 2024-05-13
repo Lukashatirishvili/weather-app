@@ -1,8 +1,8 @@
 import { Offcanvas } from "react-bootstrap";
-import Itemlist from "./Itemlist";
-import Logo from "./Logo";
+import Itemlist from "./components/dashboardPage/Itemlist";
+import Logo from "./components/dashboardPage/Logo";
 import { useContext } from "react";
-import { WeatherContext } from "../context/WeatherContext";
+import { WeatherContext } from "./context/WeatherContext";
 
 function Layout() {
   const { show, setShow } = useContext(WeatherContext);

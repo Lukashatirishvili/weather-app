@@ -9,14 +9,21 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
-import { WeatherContext } from "../context/WeatherContext";
+import { WeatherContext } from "../../context/WeatherContext";
 
 function LiveForecast() {
-  const { liveForecast } = useContext(WeatherContext);
+  const { liveForecast, isError } = useContext(WeatherContext);
 
   const { location, current } = liveForecast;
 
   const time = location?.localtime?.split(" ")[1];
+
+  if (isError)
+    return (
+      <div role="alert" className="alert alert-danger">
+        Sorry, we couldn`t find that city. Please try again.
+      </div>
+    );
 
   if (liveForecast.length === 0)
     return (

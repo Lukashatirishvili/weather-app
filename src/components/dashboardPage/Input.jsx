@@ -1,7 +1,7 @@
 import { faBars, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext, useState } from "react";
-import { WeatherContext } from "../context/WeatherContext";
+import { WeatherContext } from "../../context/WeatherContext";
 
 function Input() {
   const { setShow, handleFetchForecast } = useContext(WeatherContext);

@@ -9,7 +9,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { WeatherContext } from "../context/WeatherContext";
+import { WeatherContext } from "../../context/WeatherContext";
 
 function Itemlist() {
   const { setShow } = useContext(WeatherContext);

@@ -1,6 +1,6 @@
-import DailyForecast from "../components/DailyForecast";
-import ForecastSection from "../components/ForecastSection";
-import Input from "../components/Input";
+import DailyForecast from "../components/dashboardPage/DailyForecast";
+import ForecastSection from "../components/dashboardPage/ForecastSection";
+import Input from "../components/dashboardPage/Input";
 
 function Dashboard() {
   return (

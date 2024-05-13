@@ -1,4 +1,4 @@
-import { createContext, useReducer, useState } from "react";
+import { createContext, useEffect, useReducer, useState } from "react";
 import axios from "axios";
 
 const KEY = "5f318bb483d947428a593647241205";
@@ -11,31 +11,75 @@ const initialState = {
   liveForecast: [],
   dailyForecast: [],
   error: "",
+  isError: false,
   isLoading: false,
+  locationName: "",
+  mapPosition: { lat: 42.2718, lng: 42.706 },
 };
 
 function reducer(state, action) {
   switch (action.type) {
     case "FETCH_REQUEST":
-      return { ...state, isLoading: true, error: null };
+      return { ...state, isLoading: true, error: null, isError: false };
     case "FETCH_ERROR":
-      return { ...state, isLoading: false, error: action.payload };
-    case "FETCH_FORECAST":
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload,
+        isError: true,
+        liveForecast: [],
+        dailyForecast: [],
+      };
+    case "FETCH_FORECAST": {
+      const forecast = action.payload.liveForecast;
+      const obj = { lat: forecast.location.lat, lng: forecast.location.lon };
       return {
         ...state,
         isLoading: false,
         liveForecast: action.payload.liveForecast,
         dailyForecast: action.payload.dailyForecast,
+        mapPosition: obj,
+        isError: false,
       };
+    }
+
+    case "SET_MAPPOSITION":
+      return { ...state, mapPosition: action.payload };
+
+    case "GETNAME_WITHCORDS":
+      return { ...state, locationName: action.payload };
   }
 }
 
 export function WeatherProvider({ children }) {
-  const [{ query, liveForecast, dailyForecast, isLoading }, dispatch] =
-    useReducer(reducer, initialState);
+  const [
+    {
+      query,
+      liveForecast,
+      dailyForecast,
+      isLoading,
+      mapPosition,
+      locationName,
+      error,
+      isError,
+    },
+    dispatch,
+  ] = useReducer(reducer, initialState);
   const [show, setShow] = useState(false);
 
-  console.log(isLoading);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const res = await axios(
+          `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${mapPosition.lat}&longitude=${mapPosition.lng}&localityLanguage=en`
+        );
+        dispatch({ type: "GETNAME_WITHCORDS", payload: res.data });
+      } catch (error) {
+        dispatch({ type: "FETCH_ERROR", payload: error });
+      }
+    }
+    fetchData();
+  }, [mapPosition]);
 
   async function handleFetchForecast(query) {
     dispatch({ type: "FETCH_REQUEST" });
@@ -69,6 +113,10 @@ export function WeatherProvider({ children }) {
         liveForecast,
         dailyForecast,
         isLoading,
+        mapPosition,
+        locationName,
+        error,
+        isError,
       }}
     >
       {children}

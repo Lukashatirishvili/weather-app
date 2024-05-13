@@ -2,6 +2,7 @@
 
 @import "../node_modules//bootstrap/scss/bootstrap.scss";
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
 
 .border-right {
   border-right: 1.4px solid #f0efef; /* Change the color and size as needed */
@@ -50,6 +51,10 @@
     max-height: 500px;
     overflow: auto;
   }
+}
+
+.map {
+  height: 100%;
 }
 
 /* Custom scrollbar styles */
