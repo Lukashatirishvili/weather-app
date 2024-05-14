@@ -15,7 +15,7 @@ const initialState = {
   isError: false,
   isLoading: false,
   locationName: "",
-  mapPosition: { lat: 42.2718, lng: 42.706 },
+  mapPosition: { lat: 41.6938, lng: 44.8015 },
 };
 
 function reducer(state, action) {
@@ -81,6 +81,10 @@ export function WeatherProvider({ children }) {
     }
     fetchData();
   }, [mapPosition]);
+
+  useEffect(() => {
+    handleFetchForecast("Tbilisi");
+  }, []);
 
   async function handleFetchForecast(query) {
     dispatch({ type: "FETCH_REQUEST" });
