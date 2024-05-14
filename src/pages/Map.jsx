@@ -8,38 +8,16 @@ import {
   useMapEvents,
 } from "react-leaflet";
 import { WeatherContext } from "../context/WeatherContext";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate } from "react-router-dom";
+
+import MapNavbar from "../components/mapPage/MapNavbar";
 
 function Map() {
-  const { mapPosition, locationName, setShow, handleFetchForecast } =
-    useContext(WeatherContext);
-  const navigate = useNavigate("/");
+  const { mapPosition } = useContext(WeatherContext);
 
   return (
     <div className="col">
-      <div className="px-3 pt-3 d-flex align-items-center gap-3">
-        <div className="d-lg-none me-3" onClick={() => setShow(true)}>
-          <span className="fs-3">
-            <FontAwesomeIcon icon={faBars} />
-          </span>
-        </div>
-        <div className="d-flex align-items-center gap-4">
-          <p className="fw-semibold fs-5">{locationName.city}</p>
-          <button
-            type="button"
-            className="btn btn-outline-primary"
-            onClick={() => {
-              handleFetchForecast(locationName.city);
-              navigate("/");
-            }}
-          >
-            Click to see weather
-          </button>
-        </div>
-      </div>
-      <div className="p-3" style={{ height: "500px", width: "100%" }}>
+      <MapNavbar />
+      <div className="p-3" style={{ height: "600px", width: "100%" }}>
         <MapContainer
           center={mapPosition}
           zoom={13}

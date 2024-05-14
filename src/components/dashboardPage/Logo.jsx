@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Logo() {
   return (
-    <div className="d-flex justify-content-center align-items-center gap-2">
+    <div className="d-flex justify-content-center align-items-center gap-2 mt-3">
       <span className="fs-3 cloud-color">
         <FontAwesomeIcon icon={faCloud} />
       </span>

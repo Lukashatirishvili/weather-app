@@ -10,6 +10,7 @@ const initialState = {
   query: "",
   liveForecast: [],
   dailyForecast: [],
+  savedLocations: [],
   error: "",
   isError: false,
   isLoading: false,
